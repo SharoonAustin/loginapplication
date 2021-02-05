@@ -16,7 +16,7 @@ class Admin extends React.Component{
    }
 
    caller=()=>{
-   axios.get('http://localhost:3000/getData')
+   axios.get('https://loginapplicationsharoon.herokuapp.com/getData')
    .then(response=>{
       const data=response.data;
       this.setState({stateOptions: data});
