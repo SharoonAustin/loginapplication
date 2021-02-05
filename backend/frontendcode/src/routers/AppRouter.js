@@ -4,7 +4,7 @@ import React from 'react'
 import LoginForm from '../components/LoginForm';
 import Profile from '../components/Profile';
 import Register from '../components/Register';
-import Admin from '../components/Admin';
+import Admin from '../components/admin';
 import IncorrectLogin from '../components/IncorrectLogin'
 export const history= createHistory();
 
