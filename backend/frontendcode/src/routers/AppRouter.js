@@ -3,8 +3,8 @@ import createHistory from 'history/createBrowserHistory'
 import React from 'react'
 import LoginForm from '../components/LoginForm';
 import Profile from '../components/Profile';
-import Register from '../components/register';
-import Admin from '../components/admin';
+import Register from '../components/Register';
+import Admin from '../components/Admin';
 import IncorrectLogin from '../components/IncorrectLogin'
 export const history= createHistory();
 
