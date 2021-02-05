@@ -1,0 +1,37 @@
+.box-layout{
+    background: lightgray;
+    align-items:center;
+    background-size: cover;
+    display: flex;
+    height:100vh;
+    justify-content: center;
+    width:100vw;
+}
+.box-layout__box{
+    background: fade-out($color: lightgray, $amount: .15);
+    border-radius: 3px;
+    padding: $l-size $m-size;
+    text-align:center;
+    width:25rem;
+}
+
+.box-layout__title{
+    margin: 0 0 $m-size 0;
+    line-height: 1;
+}
+
+.box-layout__button{
+    background-color: lightblue;
+}
+
+.button{
+    background: $blue;
+    border:none;
+    color:white;
+    display: inline-block;
+    line-height: 1;
+    font-weight:300;
+    font-size:$font_size_large;
+    padding:$s-size;
+    text-decoration: none;
+}
