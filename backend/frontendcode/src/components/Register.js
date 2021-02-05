@@ -18,7 +18,7 @@ const Register=(props)=>{
              firstname:e.target.firstname.value
          }
     
-        axios.post('https://loginapplicationsharoon.herokuapp.com/getData/register',request)
+        axios.post('https://loginapplicationsharoon.herokuapp.com/register',request)
         .then(response=>{
            
             if(response.data.status==400){

@@ -21,7 +21,7 @@ const LoginForm=(props)=>{
              password: e.target.password.value
          }
     
-        axios.post('https://loginapplicationsharoon.herokuapp.com/getData/login',request)
+        axios.post('https://loginapplicationsharoon.herokuapp.com/login',request)
         .then(response=>{
            
             if(response.data.status==401){
