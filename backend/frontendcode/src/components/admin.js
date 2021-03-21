@@ -47,7 +47,7 @@ class Admin extends React.Component{
    <span >
    <h2 className="span-tag">Home-Admin-Users</h2>
    </span>
-   <br/>
+   <br/> <br/>
    <table className="table">
    <thead>
    <tr>

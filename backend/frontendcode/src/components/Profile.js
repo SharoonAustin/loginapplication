@@ -45,7 +45,7 @@ class Profile extends React.Component{
    <span >
    <h2 className="span-tag">User-Detail</h2>
    </span>
-   <br/>
+   <br/><br/>
    <table className="table">
    <thead>
    <tr>

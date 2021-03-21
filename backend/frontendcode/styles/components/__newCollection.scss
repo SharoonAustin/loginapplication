@@ -88,6 +88,7 @@
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav-a {font-size: 18px;}
+    .Register-Button{right: 2px; top: 0px;}
   }
 
   .logout-button{
@@ -102,7 +103,7 @@
 }
 
 .Register-Button{
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 10px;
     background: teal;
@@ -116,5 +117,6 @@
 }
 
 .span-tag{
+    position: fixed;
     background-color: lightgrey;
 }
