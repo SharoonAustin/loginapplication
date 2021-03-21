@@ -42,6 +42,8 @@ const Register=(props)=>{
     <img className="home" src="Graffiti.jpg"></img>
     <div className="box-layout">
     <form onSubmit={(e)=>adminData(e)}>
+      <center><h4>Add New User</h4></center>
+      <br/><br/><br/>
       <input type="text" className="form-control" name="firstname" placeholder="First Name" required></input>
        <hr/>
       <input type="email" className="form-control" name="email" placeholder="Email" required></input> 

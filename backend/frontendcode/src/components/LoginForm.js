@@ -66,7 +66,7 @@ const LoginForm=(props)=>{
         
         
         <form onSubmit={(e)=>adminData(e)}>
-          <h4>Login Via Email</h4>
+          <center><h4>Login Via Email</h4></center>
           <br/><br/><br/>
           <h6>Email Address</h6>
           <input type="email" id="emailid" className="form-control" name="email" placeholder="Email" required></input> 
