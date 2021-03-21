@@ -9,18 +9,26 @@ class Admin extends React.Component{
    constructor(){
       super();
       this.caller=this.caller.bind(this);
-      this.caller();
    }
+
    state={
       stateOptions:[{}]
    }
 
-   caller=()=>{
-   axios.get('https://loginapplicationsharoon.herokuapp.com/getData')
-   .then(response=>{
-      const data=response.data;
-      this.setState({stateOptions: data});
-   })  
+   caller = async ()=>{
+      let data
+      try{
+      data=await axios.get('http://localhost:3000/getData')
+      .then(response=>{
+         return response.data;
+      })
+      }
+      catch(err) {}
+      this.setState({stateOptions:data});
+      }
+   
+   componentDidMount(){
+      this.caller();
    }
 
    Logout=()=>{

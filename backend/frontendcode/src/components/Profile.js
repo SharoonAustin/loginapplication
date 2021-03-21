@@ -13,7 +13,7 @@ const Profile=(props)=>{
    
    useEffect(()=>{
    const key=localStorage.getItem('id')
-   axios.get(`https://loginapplicationsharoon.herokuapp.com/getData/${key}`)
+   axios.get(`http://localhost:3000/getData/${key}`)
    .then(response=>{
       setEmail(response.data.email);      
       setfirstname(response.data.firstname)

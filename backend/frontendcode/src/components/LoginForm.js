@@ -21,7 +21,7 @@ const LoginForm=(props)=>{
              password: e.target.password.value
          }
     
-        axios.post('https://loginapplicationsharoon.herokuapp.com/login',request)
+        axios.post('http://localhost:3000/login',request)
         .then(response=>{
            
             if(response.data.status==401){
@@ -44,6 +44,21 @@ const LoginForm=(props)=>{
         })
     } 
     
+    function myFunction(){
+    let words=["a","b"];
+    let wordsCount=new Map();
+    for(let i=0; i<words.length; i++){
+        if(wordsCount.get(words[i])===undefined)
+            wordsCount.set(words[i],1);
+        else
+            wordsCount.set(words[i],wordsCount.get(words[i])+1);
+    }
+    for(let keys in wordsCount)
+        console.log(keys +" "+ wordsCount[keys]);
+    }
+
+
+    myFunction();
     return(
         <div className="box-layout">
         <form onSubmit={(e)=>adminData(e)}>
