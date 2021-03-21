@@ -1,58 +1,96 @@
 import React,{useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import {history} from '../routers/AppRouter';
-import {addTheUser,reset} from '../actions/addTheUser'
 import {Link} from 'react-router-dom';
+import AdminPanel from './AdminPanel';
 
-const Profile=(props)=>{
+class Profile extends React.Component{
+   constructor(){
+      super();
+      this.caller=this.caller.bind(this);
+      this.caller();
+   }
 
-   const[email, setEmail]=useState("");
-   const[firstname, setfirstname]=useState("")
+   state={
+      stateOptions:[{}],
+      isadmin:false
+   }
+   caller = async ()=>{
+      const key=localStorage.getItem('id');
+      let data
+      try{
+      data=await axios.get(`https://loginapplicationsharoon.herokuapp.com/getData/${key}`)
+      .then(response=>{
+         return response.data;
+      })
+      }
+      catch(err) {}
+      this.setState({stateOptions:data});
+      this.setState({isadmin:data.isadmin})
+      }
 
-   
-   useEffect(()=>{
-   const key=localStorage.getItem('id')
-   axios.get(`http://localhost:3000/getData/${key}`)
-   .then(response=>{
-      setEmail(response.data.email);      
-      setfirstname(response.data.firstname)
-   })
-   },[])   
-   
-   const Logout=()=>{
-     localStorage.clear();
-     props.dispatch(reset());
-     history.push('/');
-  }
+   render()
+   {
+   let i=1;
 
-  return (
+   return (
    localStorage.getItem('id')!=null
    ?
-   ( 
-   <div className="box-layout">
-   <div className="box-layout__box"> 
-   <h1>Hello {firstname}</h1>
-   <h4>{email}</h4>
-   <h4>{firstname}</h4>
-   <button onClick={()=>Logout()}>Logout</button>
+   (  
+      <React.Fragment>
+      <AdminPanel isadmin={this.state.isadmin}/>
+   <div className="box-layout-1">         
+   <br/>
+   <div className="container">
+   <span >
+   <h2 className="span-tag">User-Detail</h2>
+   </span>
+   <br/>
+   <table className="table">
+   <thead>
+   <tr>
+   <th>#</th>
+   <th>Name</th>
+   <th>Mobile</th>
+   <th>Email</th>
+   <th>UserName</th>
+   <th>UserType</th>
+   <th>Mentees</th>
+   <th></th>
+   </tr>
+   </thead>
+   <tbody>
+      <tr key={Math.random()}>
+         <td>{i++}</td>
+         <td></td>
+         <td></td>
+         <td>{this.state.stateOptions.email}</td>
+        <td>{this.state.stateOptions.firstname}</td>
+        {
+         this.state.stateOptions.isadmin &&
+            <td>SUPER_ADMIN</td>
+        }
+        {
+         !this.state.stateOptions.isadmin &&
+            <td>-</td>
+        }
+        <td>-</td>
+      </tr>
+   </tbody>
+   </table>
    </div>
    </div>
+   </React.Fragment>
    )
    :
    (
-      <div>
+      <React.Fragment>
       <Link to="/">Please Login as a admin to view the user details</Link>
-      </div>
+      </React.Fragment>
    )
-  )
-}
-
-const connectTheData=((state)=>{
-   return{
-       item:state
+   )
    }
-})
+}
+export default connect()(Profile);
 
 
-export default connect(connectTheData)(Profile);

@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
-import {addTheUser} from '../actions/addTheUser'
 import {history} from '../routers/AppRouter';
 import {reset} from '../actions/addTheUser'
 
@@ -21,7 +20,7 @@ const LoginForm=(props)=>{
              password: e.target.password.value
          }
     
-        axios.post('http://localhost:3000/login',request)
+        axios.post('https://loginapplicationsharoon.herokuapp.com/login',request)
         .then(response=>{
            
             if(response.data.status==401){
@@ -60,16 +59,25 @@ const LoginForm=(props)=>{
 
     myFunction();
     return(
+        <React.Fragment>
+
+        <img className="home" src="Graffiti.jpg"></img>
         <div className="box-layout">
+        
+        
         <form onSubmit={(e)=>adminData(e)}>
+          <h4>Login Via Email</h4>
+          <br/><br/><br/>
+          <h6>Email Address</h6>
           <input type="email" id="emailid" className="form-control" name="email" placeholder="Email" required></input> 
-          <hr/>     
+          <hr/>
+          <h6>Password</h6>     
           <input type="password" id="passid" className="form-control" name="password" placeholder="Password" required></input>                 
           <hr/>
           <button type="submit" className="button">Login</button>
           </form>    
           </div>
-  
+          </React.Fragment>
     )
     
 }
